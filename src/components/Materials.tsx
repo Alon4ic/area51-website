@@ -53,7 +53,7 @@ export default function Materials() {
                 </button>
                 <button
                     className="flex-1 flex flex-col justify-start bg-transparent hover:bg-black/10 transition-colors desktop:pt-[767px] xl:pt-[575px] lg:pt-[481px] md:pt-[383px] pt-[332px] md:pb-0 pb-[27px] border-r md:border-r-gray30 border-r-transparent border-b md:border-b-0 border-b-gray30 md:px-0 px-10"
-                    onClick={() => setActiveBackground(0)}
+                    onClick={() => setActiveBackground(1)}
                 >
                     <a className="font-normal desktop:text-lg lg:text-sm desktop:leading-[34px] lg:leading-[25.5px] text-grayText underline left-padding">
                         View
@@ -64,7 +64,7 @@ export default function Materials() {
                 </button>
                 <button
                     className="flex-1 flex flex-col justify-start bg-transparent hover:bg-black/10 transition-colors desktop:pt-[767px] xl:pt-[575px] lg:pt-[481px] md:pt-[383px] pt-[332px] md:pb-0 pb-[27px] md:px-0 px-10"
-                    onClick={() => setActiveBackground(0)}
+                    onClick={() => setActiveBackground(2)}
                 >
                     <a className="font-normal desktop:text-lg lg:text-sm desktop:leading-[34px] lg:leading-[25.5px] text-grayText underline left-padding">
                         View
