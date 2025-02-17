@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'PlusJakartaSans';
+    src: url('/fonts/PlusJakartaSans-Regular.woff2') format('woff2'),
+        url('/fonts/PlusJakartaSans-Regular.woff') format('woff'),
+        url('/fonts/PlusJakartaSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PlusJakartaSans';
+    src: url('/fonts/PlusJakartaSans-Bold.woff2') format('woff2'),
+        url('/fonts/PlusJakartaSans-Bold.woff') format('woff'),
+        url('/fonts/PlusJakartaSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: bold;
+}
+
+@font-face {
+    font-family: 'ArchitectsDaughter';
+    src: url('/fonts/ArchitectsDaughter-Regular.woff2') format('woff2'),
+        url('/fonts/ArchitectsDaughter-Regular.woff') format('woff'),
+        url('/fonts/ArchitectsDaughter-Regular.ttf') format('truetype');
+    font-weight: 400; /* Regular */
+    font-style: normal;
+}
+
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
+}
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+
+body {
+    display: block;
+    margin: 0 auto;
+    max-width: 1990px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PlusJakartaSans';
+}
+.custom-mx {
+    @apply xl:mx-[80px] lg:mx-[60px] sm:mx-[40px] mx-5;
+}
+.text-styles {
+    @apply desktop:text-xl xl:text-lg text-base text-grayText desktop:leading-[34px] xl:leading-[30px] leading-6
+}
+.block-flex {
+    @apply w-1/4 md:w-1/2 sm:w-full;
+}
+.left-padding {
+    @apply desktop:pl-[49px] xl:pl-[57px] lg:pl-[47px] md:pl-[37px] pl-0;
+}
