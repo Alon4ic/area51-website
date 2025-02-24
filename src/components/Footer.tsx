@@ -132,7 +132,7 @@ export default function Footer() {
                             + 971 52 673 1428
                         </a>
                         <a
-                            href="mailto:admin@active-tribe.com"
+                            href="mailto:hello@area51dxb.com"
                             className="text-[21.33px] text-white leading-[32px] tracking--2"
                         >
                             hello@area51dxb.com
