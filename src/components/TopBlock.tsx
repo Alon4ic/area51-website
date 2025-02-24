@@ -11,7 +11,7 @@ export default function TopBlock() {
                     for
                     <br className="lg:hidden inline" /> interior design
                 </h1>
-                <p className="max-w-[877px] text-grayText font-normal text-xl leading-[34px]">
+                <p className="max-w-[877px] text-grayText font-normal text-xl leading-[32px]">
                     Area51 is a premier provider of exceptional Italian
                     materials in the GCC region, offering a curated selection
                     that includes porcelain stone ware, sanitary ware, mixers,

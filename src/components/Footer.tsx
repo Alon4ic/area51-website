@@ -3,7 +3,6 @@ import Link from 'next/link';
 import React, { useCallback } from 'react';
 import Button from './Button';
 
-
 export default function Footer() {
     const handleMapClick = useCallback(() => {
         const isMobile =
@@ -62,19 +61,6 @@ export default function Footer() {
                             <Image
                                 src="/icons/linkedin.svg"
                                 alt="Linkedin"
-                                width={21}
-                                height={21}
-                                className="w-[21px] h-[21px]"
-                            />
-                        </a>
-                        <a
-                            className="w-[21px] h-[21px]"
-                            href="https://www.facebook.com"
-                            target="_blank"
-                        >
-                            <Image
-                                src="/icons/facebook.svg"
-                                alt="Facebook"
                                 width={21}
                                 height={21}
                                 className="w-[21px] h-[21px]"

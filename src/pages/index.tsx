@@ -64,11 +64,6 @@ export default function Home() {
                     className="custom-mx xl:pt-[152px] sm:pt-[100px] pt-[52px] desktop:pb-[267px] xl:pb-[148px] lg:pb-[161px] sm:pb-[231px] pb-[138px]"
                 >
                     <TopBlock />
-                    <div className="absolute bottom-[38px] right-[79px] hidden desktop:block">
-                        <p className="text-grayText font-normal text-lg">
-                            Area51 Al Quoz Showroom
-                        </p>
-                    </div>
                     <LinesTop />
                 </div>
             </div>
