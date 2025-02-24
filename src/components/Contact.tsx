@@ -1,52 +1,28 @@
 import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import Button from './ButtonSpan';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function Contact() {
     const [state, handleSubmit] = useForm('mvgzvjjz');
     const [errorMessage, setErrorMessage] = useState('');
-    const [formData, setFormData] = useState({
-        fullname: '',
-        email: '',
-        subject: '',
-    });
 
     const validateForm = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+        event.preventDefault(); // Останавливаем отправку формы для проверки данных
 
-        const subjectValue = formData.subject;
+        const form = event.currentTarget;
+        const subjectInput = form.subject as HTMLInputElement;
+        const subjectValue = subjectInput.value;
 
         if (subjectValue.length < 20) {
             setErrorMessage('Subject must be at least 20 characters long');
         } else {
             setErrorMessage('');
-            handleSubmit(event).then(() => {
-                if (state.succeeded) {
-                    // Очистка формы
-                    setFormData({ fullname: '', email: '', subject: '' });
-                    // Показываем тост
-                    toast.success('Message sent successfully!', {
-                        position: 'top-right',
-                        autoClose: 3000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                    });
-                }
-            });
+            handleSubmit(event); // Отправляем форму только если проверка пройдена
         }
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     return (
         <div className="desktop:py-[100px] lg:py-[80px] phone:py-[60px] py-[40px] custom-mx">
-            <ToastContainer /> {/* Контейнер для тостов */}
             <div className="w-full flex xl:flex-row flex-col justify-between desktop:gap-[80px] gap-[40px]">
                 <div className="desktop:w-[54.8%] xl:w-[46%] w-[100%]">
                     <h2 className="font-architects font-normal text-white desktop:text-[60px] text-[50px] leading-[80px] desktop:mb-[60px] mb-[40px]">
@@ -59,8 +35,9 @@ export default function Contact() {
                         essential in shaping a truly extraordinary environment.
                     </p>
                     <p className="font-normal desktop:text-xl text-lg desktop:leading-[34px] leading-[28px] text-lightGray">
-                        Come visit us. You&apos;ll see how we can make your
-                        ideas happen!
+                        {' '}
+                        Come visit us. You&aposll see how we can make you ideas
+                        happen!
                     </p>
                     <form
                         onSubmit={validateForm}
@@ -80,8 +57,6 @@ export default function Contact() {
                                     name="fullname"
                                     id="fullname"
                                     required
-                                    value={formData.fullname}
-                                    onChange={handleChange}
                                     className="bg-transparent py-[30px] border-b border-b-[#333333] desktop:text-[25px] text-xl leading-5 font-light text-white placeholder-[#828282] focus:outline-none"
                                     placeholder="Enter your name and surname"
                                 />
@@ -104,10 +79,17 @@ export default function Contact() {
                                     name="email"
                                     id="email"
                                     required
-                                    value={formData.email}
-                                    onChange={handleChange}
                                     className="bg-transparent py-[30px] border-b border-b-[#333333] desktop:text-[25px] text-xl leading-5 font-light text-white placeholder-[#828282] focus:outline-none"
                                     placeholder="example@email.com"
+                                    onChange={(
+                                        event: React.ChangeEvent<HTMLInputElement>
+                                    ) => {
+                                        if (event.target.value.length < 20) {
+                                            console.log(
+                                                'Message must be at least 20 characters long'
+                                            );
+                                        }
+                                    }}
                                 />
                                 <ValidationError
                                     prefix="Email"
@@ -129,8 +111,6 @@ export default function Contact() {
                                 id="subject"
                                 name="subject"
                                 required
-                                value={formData.subject}
-                                onChange={handleChange}
                                 className="bg-transparent py-[30px] border-b border-b-[#333333] desktop:text-[25px] xl:text-xl leading-5 font-light text-white placeholder-[#828282] focus:outline-none"
                                 placeholder="Tell us about your future project."
                             />
@@ -145,6 +125,7 @@ export default function Contact() {
                                 errors={state.errors}
                             />
                         </div>
+                        {/* Кнопка отправки */}
                         <Button
                             type="submit"
                             disabled={state.submitting}
