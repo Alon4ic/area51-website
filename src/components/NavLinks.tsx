@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
-import Link from "next/link";
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 export const navLinks = [
     { id: 0, name: 'Introduction', href: '/#home' },
@@ -9,22 +9,20 @@ export const navLinks = [
     { id: 4, name: 'Contact', href: '#contact' },
     { id: 5, name: 'About Us', href: '/#about' },
 ];
+
 interface NavLinksProps {
     isVertical?: boolean;
     className?: string;
 }
 
-export default function NavLinks({
-    isVertical,
-    className,
-}: NavLinksProps) {
+export default function NavLinks({ isVertical, className }: NavLinksProps) {
     return (
         <nav
             className={cn(
                 'flex',
                 isVertical
                     ? 'flex-col space-y-2'
-                    : 'justify-between items-center xl:gap-[34px] gap-[15px] uppercase',
+                    : 'justify-between items-center desktop:gap-[50px] xl:gap-[40px] gap-[30px] uppercase',
                 className
             )}
         >
@@ -32,9 +30,10 @@ export default function NavLinks({
                 <Link
                     href={item.href}
                     key={item.id}
-                    className="text-white text-base hover:bg-gray-600 active:bg-gray-500 group font-normal whitespace-nowrap px-2 py-2 rounded"
+                    className="relative text-white hover:text-[#BDBDBD] text-base  group font-normal whitespace-nowrap py-2 rounded overflow-hidden"
                 >
                     {item.name}
+                    <span className="absolute left-0 top-1/2 h-[2px] bg-[#BDBDBD] w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 ease-in-out transform -translate-y-1/2 origin-left group-[&:not(:hover)]:origin-right"></span>
                 </Link>
             ))}
         </nav>

@@ -3,7 +3,7 @@
 import MobileMenu from './MobileMenu';
 import BurgerBtn from './BurgerBtn';
 import { useState } from 'react';
-import Button from './Button';
+import Button from './ButtonSpan';
 import Link from 'next/link';
 import Image from 'next/image';
 import NavLinks from './NavLinks';

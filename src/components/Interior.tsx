@@ -1,33 +1,7 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
-import Button from './Button';
-
-const imagesByButton: { [key: string]: string[] } = {
-    1: [
-        '/images/interior/button1-img1.jpg',
-        '/images/interior/button1-img2.jpg',
-        '/images/interior/button1-img3.jpg',
-        '/images/interior/button1-img4.jpg',
-    ],
-    2: [
-        '/images/interior/button2-img1.jpg',
-        '/images/interior/button2-img2.jpg',
-        '/images/interior/button2-img3.jpg',
-        '/images/interior/button2-img4.jpg',
-    ],
-    3: [
-        '/images/interior/button1-img1.jpg',
-        '/images/interior/button1-img2.jpg',
-        '/images/interior/button1-img3.jpg',
-        '/images/interior/button1-img4.jpg',
-    ],
-    4: [
-        '/images/interior/button1-img1.jpg',
-        '/images/interior/button1-img2.jpg',
-        '/images/interior/button1-img3.jpg',
-        '/images/interior/button1-img4.jpg',
-    ],
-};
+import Button from './ButtonSpan';
+import { imagesByButton } from '../constants/imageConstants'; // Путь к вашему файлу
 
 export default function Interior() {
     const [activeButton, setActiveButton] = useState(1);
@@ -135,13 +109,20 @@ export default function Interior() {
                             alt={`Image ${index + 1}`}
                             width={622}
                             height={411}
-                            className="w-full h-auto object-cover  shadow-md"
+                            className="w-[100%] h-[100%] object-contain shadow-md"
                         />
                     )
                 )}
             </div>
             <div className="flex justify-center phone:pt-[60px] pt-[40px]">
-                <Button className="uppercase py-[15px] px-[30px]">
+                <Button
+                    className="uppercase py-[15px] px-[30px]"
+                    onClick={() => {
+                        document.getElementById('contact')?.scrollIntoView({
+                            behavior: 'smooth',
+                        });
+                    }}
+                >
                     Transform Space with Area51!
                 </Button>
             </div>

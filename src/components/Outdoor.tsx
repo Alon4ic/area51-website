@@ -1,33 +1,7 @@
 import React, { useState } from 'react';
-import Button from './Button';
+import Button from './ButtonSpan';
 import Image from 'next/image';
-
-const imagesByBtn: { [key: string]: string[] } = {
-    1: [
-        '/images/outdoor/outdoor1-img1.jpg',
-        '/images/outdoor/outdoor1-img2.jpg',
-        '/images/outdoor/outdoor1-img3.jpg',
-        '/images/outdoor/outdoor1-img4.jpg',
-    ],
-    2: [
-        '/images/outdoor/outdoor2-img1.jpg',
-        '/images/outdoor/outdoor2-img2.jpg',
-        '/images/outdoor/outdoor2-img3.jpg',
-        '/images/outdoor/outdoor2-img4.jpg',
-    ],
-    3: [
-        '/images/outdoor/outdoor1-img1.jpg',
-        '/images/outdoor/outdoor1-img2.jpg',
-        '/images/outdoor/outdoor1-img3.jpg',
-        '/images/outdoor/outdoor1-img4.jpg',
-    ],
-    4: [
-        '/images/outdoor/outdoor1-img1.jpg',
-        '/images/outdoor/outdoor1-img2.jpg',
-        '/images/outdoor/outdoor1-img3.jpg',
-        '/images/outdoor/outdoor1-img4.jpg',
-    ],
-};
+import { imagesByBtn } from '../constants/imageConstants';
 
 export default function Outdoor() {
     const [activeButton, setActiveButton] = useState(1);
@@ -132,12 +106,19 @@ export default function Outdoor() {
                         alt={`Image ${index + 1}`}
                         width={622}
                         height={411}
-                        className="w-full h-auto object-cover  shadow-md"
+                        className="w-full h-full object-cover  shadow-md"
                     />
                 ))}
             </div>
             <div className="flex justify-center phone:pt-[60px] pt-[40px]">
-                <Button className="uppercase py-[15px] px-[30px]">
+                <Button
+                    className="uppercase py-[15px] px-[30px]"
+                    onClick={() => {
+                        document.getElementById('contact')?.scrollIntoView({
+                            behavior: 'smooth',
+                        });
+                    }}
+                >
                     Transform Space with Area51!
                 </Button>
             </div>

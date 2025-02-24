@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button';
+import Button from './ButtonSpan';
 
 export default function TopBlock() {
     return (
@@ -19,7 +19,14 @@ export default function TopBlock() {
                     mosaic tiles.
                 </p>
                 <div className="mt-[28px]">
-                    <Button className="px-[40px] py-[15px]">
+                    <Button
+                        className="px-[40px] py-[15px]"
+                        onClick={() => {
+                            document.getElementById('contact')?.scrollIntoView({
+                                behavior: 'smooth',
+                            });
+                        }}
+                    >
                         VISIT OUR NOT ORDINARY SPACE{' '}
                     </Button>
                 </div>

@@ -10,7 +10,22 @@
     font-weight: 400;
     font-style: normal;
 }
-
+@font-face {
+    font-family: 'PlusJakartaSans';
+    src: url('/fonts/PlusJakartaSans-Medium.woff2') format('woff2'),
+        url('/fonts/PlusJakartaSans-Medium.woff') format('woff'),
+        url('/fonts/PlusJakartaSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: medium;
+}
+@font-face {
+    font-family: 'PlusJakartaSans';
+    src: url('/fonts/PlusJakartaSans-Light.woff2') format('woff2'),
+        url('/fonts/PlusJakartaSans-Light.woff') format('woff'),
+        url('/fonts/PlusJakartaSans-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: light;
+}
 @font-face {
     font-family: 'PlusJakartaSans';
     src: url('/fonts/PlusJakartaSans-Bold.woff2') format('woff2'),
@@ -18,6 +33,14 @@
         url('/fonts/PlusJakartaSans-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: bold;
+}
+@font-face {
+    font-family: 'PlusJakartaSans';
+    src: url('/fonts/PlusJakartaSans-ExtraBold.woff2') format('woff2'),
+        url('/fonts/PlusJakartaSans-ExtraBold.woff') format('woff'),
+        url('/fonts/PlusJakartaSans-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
 }
 
 @font-face {
@@ -44,10 +67,8 @@ html {
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden;
     scroll-behavior: smooth;
 }
-
 
 body {
     display: block;
@@ -61,11 +82,15 @@ body {
     @apply xl:mx-[80px] lg:mx-[60px] sm:mx-[40px] mx-5;
 }
 .text-styles {
-    @apply desktop:text-xl xl:text-lg text-base text-grayText desktop:leading-[34px] xl:leading-[30px] leading-6
+    @apply desktop:text-xl xl:text-lg text-base text-grayText desktop:leading-[34px] xl:leading-[30px] leading-6;
 }
 .block-flex {
     @apply w-1/4 md:w-1/2 sm:w-full;
 }
 .left-padding {
     @apply desktop:pl-[49px] xl:pl-[57px] lg:pl-[47px] md:pl-[37px] pl-0;
+}
+
+.input:-internal-autofill-selected {
+    background-color: transparent !important;
 }

@@ -12,16 +12,26 @@ const smallScreenBackgroundImages = [
     '/images/md-material3.jpg',
 ];
 
+// Функция для предзагрузки изображений
+const preloadImages = (urls: string[]) => {
+    urls.forEach((url) => {
+        const img = new Image();
+        img.src = url;
+    });
+};
 export default function Materials() {
     const [activeBackground, setActiveBackground] = useState(0);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
     useEffect(() => {
+        // Предзагрузка всех изображений при монтировании
+        preloadImages([...backgroundImages, ...smallScreenBackgroundImages]);
+
         const handleResize = () => {
-            setIsSmallScreen(window.innerWidth < 720); // md breakpoint
+            setIsSmallScreen(window.innerWidth < 720);
         };
 
-        handleResize(); // Проверка при загрузке
+        handleResize();
         window.addEventListener('resize', handleResize);
 
         return () => window.removeEventListener('resize', handleResize);
@@ -77,4 +87,3 @@ export default function Materials() {
         </div>
     );
 }
-

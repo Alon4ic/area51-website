@@ -12,6 +12,9 @@ export default {
                 jakarta: ['PlusJakartaSans', 'sans-serif'],
                 architects: ['ArchitectsDaughter', 'sans-serif'],
             },
+            letterSpacing: {
+                '-2': '-2px', // Ваше кастомное значение
+            },
             colors: {
                 background: 'var(--background)',
                 foreground: 'var(--foreground)',
