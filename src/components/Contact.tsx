@@ -21,15 +21,20 @@ export default function Contact() {
             setErrorMessage('Subject must be at least 20 characters long');
         } else {
             setErrorMessage('');
-            await handleSubmit(event);
+            try {
+                await handleSubmit(event);
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                setErrorMessage('An error occurred. Please try again later.');
+            }
         }
     };
 
     useEffect(() => {
+        console.log('Form state:', state);
         if (state.succeeded) {
             const form = document.querySelector('form') as HTMLFormElement;
             if (form) form.reset();
-
             toast.success('Message sent successfully!', {
                 position: 'top-right',
                 autoClose: 3000,
@@ -38,8 +43,15 @@ export default function Contact() {
                 pauseOnHover: true,
                 draggable: true,
             });
+        } else if (
+            state.errors &&
+            Array.isArray(state.errors) &&
+            state.errors.length > 0
+        ) {
+            console.error('Form submission failed:', state.errors);
+            setErrorMessage('Failed to send message. Please try again.');
         }
-    }, [state.succeeded]);
+    }, [state]);
 
     return (
         <div className="desktop:py-[100px] lg:py-[80px] phone:py-[60px] py-[40px] custom-mx">
@@ -57,11 +69,12 @@ export default function Contact() {
                     </p>
                     <p className="font-normal desktop:text-xl text-lg desktop:leading-[34px] leading-[28px] text-lightGray">
                         {' '}
-                        Come visit us. You&apos;ll see how we can make you ideas
+                        Come visit us. You’ll see how we can make you ideas
                         happen!
                     </p>
                     <form
                         onSubmit={validateForm}
+                        method="POST"
                         className="desktop:mt-[60px] mt-[40px]"
                     >
                         <div className="flex desktop:flex-row flex-col desktop:gap-[60px] gap-[30px]">
