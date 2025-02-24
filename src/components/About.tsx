@@ -8,7 +8,7 @@ export default function About() {
                 <h2 className="font-normal font-architects desktop:text-[70px] phone:text-[50px] text-[40px] md:leading-[130px] leading-[70px] text-white">
                     The Story Behind Area51
                 </h2>
-                <p className="font-normal desktop:text-xl md:text-lg text-base md:leading-[34px] leading-7 text-white mt-5">
+                <p className="font-normal desktop:text-xl md:text-lg text-base md:leading-[32px] text-white mt-5">
                     As Interior material finishes consultant we wanted to create
                     a NON-ORDINARY material hub dedicated to Architects and
                     Interior designers where project ideas can be easily

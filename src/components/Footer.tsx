@@ -135,7 +135,7 @@ export default function Footer() {
                             href="mailto:admin@active-tribe.com"
                             className="text-[21.33px] text-white leading-[32px] tracking--2"
                         >
-                            admin@active-tribe.com
+                            hello@area51dxb.com
                         </a>
                     </div>
                 </div>
