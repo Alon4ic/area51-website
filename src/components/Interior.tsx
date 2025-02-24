@@ -109,7 +109,7 @@ export default function Interior() {
                             alt={`Image ${index + 1}`}
                             width={622}
                             height={411}
-                            className="w-[100%] h-[100%] object-contain shadow-md"
+                            className="w-[100%] h-[100%] object-contain"
                         />
                     )
                 )}

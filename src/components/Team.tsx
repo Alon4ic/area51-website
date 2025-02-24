@@ -4,7 +4,7 @@ import React from 'react';
 const blocksData = [
     {
         id: 1,
-        image: '/images/ava-1.jpg',
+        image: '/images/ava-1.png',
         title: 'Cristina Ibelli',
         description: 'Founder',
         skills: ['English', 'Italian'],
@@ -12,7 +12,7 @@ const blocksData = [
     },
     {
         id: 2,
-        image: '/images/ava-2.jpg',
+        image: '/images/ava-2.png',
         title: 'Alina Haisina',
         description: 'Business Developer & Project Advisor',
         skills: ['English', 'Russian'],
@@ -20,7 +20,7 @@ const blocksData = [
     },
     {
         id: 3,
-        image: '/images/ava-3.jpg',
+        image: '/images/ava-3.png',
         title: 'Tamer Zaki',
         description: 'Business Developer & Project Advisor',
         skills: ['English', 'Arabic'],
@@ -28,7 +28,7 @@ const blocksData = [
     },
     {
         id: 4,
-        image: '/images/ava-4.jpg',
+        image: '/images/ava-4.png',
         title: 'Ilaria Ricatti',
         description: 'Business Developer & Project Advisor',
         skills: ['English', 'Italian'],

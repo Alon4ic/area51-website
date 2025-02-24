@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import Button from './ButtonSpan';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Contact() {
-    const [state, handleSubmit] = useForm('mvgzvjjz');
+    const [state, handleSubmit] = useForm(
+        process.env.NEXT_PUBLIC_FORMSPREE_ID || 'mvgzvjjz'
+    );
     const [errorMessage, setErrorMessage] = useState('');
 
-    const validateForm = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault(); // Останавливаем отправку формы для проверки данных
+    const validateForm = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
 
         const form = event.currentTarget;
         const subjectInput = form.subject as HTMLInputElement;
@@ -17,12 +21,29 @@ export default function Contact() {
             setErrorMessage('Subject must be at least 20 characters long');
         } else {
             setErrorMessage('');
-            handleSubmit(event); // Отправляем форму только если проверка пройдена
+            await handleSubmit(event);
         }
     };
 
+    useEffect(() => {
+        if (state.succeeded) {
+            const form = document.querySelector('form') as HTMLFormElement;
+            if (form) form.reset();
+
+            toast.success('Message sent successfully!', {
+                position: 'top-right',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        }
+    }, [state.succeeded]);
+
     return (
         <div className="desktop:py-[100px] lg:py-[80px] phone:py-[60px] py-[40px] custom-mx">
+            <ToastContainer />
             <div className="w-full flex xl:flex-row flex-col justify-between desktop:gap-[80px] gap-[40px]">
                 <div className="desktop:w-[54.8%] xl:w-[46%] w-[100%]">
                     <h2 className="font-architects font-normal text-white desktop:text-[60px] text-[50px] leading-[80px] desktop:mb-[60px] mb-[40px]">
@@ -36,14 +57,13 @@ export default function Contact() {
                     </p>
                     <p className="font-normal desktop:text-xl text-lg desktop:leading-[34px] leading-[28px] text-lightGray">
                         {' '}
-                        Come visit us. You&aposll see how we can make you ideas
+                        Come visit us. You&apos;ll see how we can make you ideas
                         happen!
                     </p>
                     <form
                         onSubmit={validateForm}
                         className="desktop:mt-[60px] mt-[40px]"
                     >
-                        {/* Поле Full Name */}
                         <div className="flex desktop:flex-row flex-col desktop:gap-[60px] gap-[30px]">
                             <div className="flex flex-col w-[50%]">
                                 <label
@@ -125,7 +145,6 @@ export default function Contact() {
                                 errors={state.errors}
                             />
                         </div>
-                        {/* Кнопка отправки */}
                         <Button
                             type="submit"
                             disabled={state.submitting}
