@@ -42,7 +42,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 >
                     <Link href="/" onClick={onClose}>
                         <Image
-                            src="/images/Logo.svg"
+                            src="/images/logo.svg"
                             alt="logo"
                             width={105}
                             height={60}
